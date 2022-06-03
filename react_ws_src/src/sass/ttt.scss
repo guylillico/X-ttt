@@ -142,7 +142,7 @@ section#TTT_game{
 
 			vertical-align: middle;
 			text-align: center;
-      cursor: pointer;
+
 			&:hover{
 				background: #ff0;
 			}
@@ -161,15 +161,6 @@ section#TTT_game{
 			border-top: 7px solid #000;
 			border-bottom: 7px solid #000;
 		}
-
-    .disabled {
-      pointer-events: none;
-      cursor: not-allowed;
-      &:hover {
-        background: none;
-      }
-
-    }
 	}
 
 }
