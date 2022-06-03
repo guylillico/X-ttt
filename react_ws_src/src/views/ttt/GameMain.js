@@ -34,6 +34,12 @@ export default class GameMain extends Component {
       game_play: this.props.game_type != 'live' ? true : false,
       game_stat: this.props.game_type != 'live' ? 'Start game' : 'Connecting',
     };
+
+    this.click_cell = this.click_cell.bind(this);
+    this.end_game = this.end_game.bind(this);
+    this.turn_opp_live = this.turn_opp_live.bind(this);
+    this.turn_comp = this.turn_comp.bind(this);
+    this.cell_cont = this.cell_cont.bind(this);
   }
 
   //	------------------------	------------------------	------------------------
@@ -85,7 +91,7 @@ export default class GameMain extends Component {
       }.bind(this)
     );
 
-    this.socket.on('opp_turn', this.turn_opp_live.bind(this));
+    this.socket.on('opp_turn', this.turn_opp_live);
   }
 
   //	------------------------	------------------------	------------------------
@@ -138,7 +144,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c1"
                   ref="c1"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                 >
                   {' '}
                   {this.cell_cont('c1')}{' '}
@@ -146,7 +152,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c2"
                   ref="c2"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                   className="vbrd"
                 >
                   {' '}
@@ -155,7 +161,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c3"
                   ref="c3"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                 >
                   {' '}
                   {this.cell_cont('c3')}{' '}
@@ -165,7 +171,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c4"
                   ref="c4"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                   className="hbrd"
                 >
                   {' '}
@@ -174,7 +180,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c5"
                   ref="c5"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                   className="vbrd hbrd"
                 >
                   {' '}
@@ -183,7 +189,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c6"
                   ref="c6"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                   className="hbrd"
                 >
                   {' '}
@@ -194,7 +200,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c7"
                   ref="c7"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                 >
                   {' '}
                   {this.cell_cont('c7')}{' '}
@@ -202,7 +208,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c8"
                   ref="c8"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                   className="vbrd"
                 >
                   {' '}
@@ -211,7 +217,7 @@ export default class GameMain extends Component {
                 <td
                   id="game_board-c9"
                   ref="c9"
-                  onClick={this.click_cell.bind(this)}
+                  onClick={this.click_cell}
                 >
                   {' '}
                   {this.cell_cont('c9')}{' '}
@@ -223,7 +229,7 @@ export default class GameMain extends Component {
 
         <button
           type="submit"
-          onClick={this.end_game.bind(this)}
+          onClick={this.end_game}
           className="button"
         >
           <span>
@@ -413,7 +419,7 @@ export default class GameMain extends Component {
     } else {
       this.props.game_type != 'live' &&
         this.state.next_turn_ply &&
-        setTimeout(this.turn_comp.bind(this), rand_to_fro(500, 1000));
+        setTimeout(this.turn_comp, rand_to_fro(500, 1000));
 
       this.setState({
         next_turn_ply: !this.state.next_turn_ply,
