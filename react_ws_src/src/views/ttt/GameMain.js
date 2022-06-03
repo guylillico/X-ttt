@@ -7,7 +7,7 @@ import TweenMax from 'gsap'
 import rand_arr_elem from '../../helpers/rand_arr_elem'
 import rand_to_fro from '../../helpers/rand_to_fro'
 
-export default class SetName extends Component {
+export default class GameMain extends Component {
 
 	constructor (props) {
 		super(props)
