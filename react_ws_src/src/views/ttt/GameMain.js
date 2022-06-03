@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import io from 'socket.io-client';
-
+import classNames from 'classnames';
 import TweenMax from 'gsap';
 
 import rand_arr_elem from '../../helpers/rand_arr_elem';
@@ -115,6 +115,27 @@ export default class GameMain extends Component {
           <i className="fa fa-circle-o fa-5x"></i>
         )}
       </div>
+    );
+  }
+
+  // Render table cell
+  render_cell(cNum) {
+    let cellClass = classNames({
+      vbrd: ['c2', 'c5', 'c8'].includes(cNum),
+      hbrd: ['c4', 'c5', 'c6'].includes(cNum),
+    });
+
+    return (
+      <td
+        id={`game_board-${cNum}`}
+        ref={cNum}
+        onClick={this.click_cell}
+        className={cellClass}
+        role="button"
+      >
+        {' '}
+        {this.cell_cont(cNum)}{' '}
+      </td>
     );
   }
 
