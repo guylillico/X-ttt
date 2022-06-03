@@ -123,6 +123,7 @@ export default class GameMain extends Component {
     let cellClass = classNames({
       vbrd: ['c2', 'c5', 'c8'].includes(cNum),
       hbrd: ['c4', 'c5', 'c6'].includes(cNum),
+      disabled: !this.state.game_play,
     });
 
     return (
@@ -349,9 +350,11 @@ export default class GameMain extends Component {
     // win && console.log('win set: ', set)
 
     if (win) {
-      this.refs[set[0]].classList.add('win');
-      this.refs[set[1]].classList.add('win');
-      this.refs[set[2]].classList.add('win');
+      setTimeout(() => {
+        this.refs[set[0]].classList.add('win');
+        this.refs[set[1]].classList.add('win');
+        this.refs[set[2]].classList.add('win');
+      }, 20);
 
       TweenMax.killAll(true);
       TweenMax.from('td.win', 1, { opacity: 0, ease: Linear.easeIn });
