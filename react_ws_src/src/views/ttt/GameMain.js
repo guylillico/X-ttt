@@ -24,23 +24,16 @@ export default class GameMain extends Component {
       ['c3', 'c5', 'c7'],
     ];
 
-    if (this.props.game_type != 'live')
-      this.state = {
-        cell_vals: {},
-        next_turn_ply: true,
-        game_play: true,
-        game_stat: 'Start game',
-      };
-    else {
+    if (this.props.game_type == 'live') {
       this.sock_start();
-
-      this.state = {
-        cell_vals: {},
-        next_turn_ply: true,
-        game_play: false,
-        game_stat: 'Connecting',
-      };
     }
+
+    this.state = {
+      cell_vals: {},
+      next_turn_ply: true,
+      game_play: this.props.game_type != 'live' ? true : false,
+      game_stat: this.props.game_type != 'live' ? 'Start game' : 'Connecting',
+    };
   }
 
   //	------------------------	------------------------	------------------------
