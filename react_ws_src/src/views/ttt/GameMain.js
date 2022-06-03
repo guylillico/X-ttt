@@ -162,87 +162,19 @@ export default class GameMain extends Component {
           <table>
             <tbody>
               <tr>
-                <td
-                  id="game_board-c1"
-                  ref="c1"
-                  onClick={this.click_cell}
-                >
-                  {' '}
-                  {this.cell_cont('c1')}{' '}
-                </td>
-                <td
-                  id="game_board-c2"
-                  ref="c2"
-                  onClick={this.click_cell}
-                  className="vbrd"
-                >
-                  {' '}
-                  {this.cell_cont('c2')}{' '}
-                </td>
-                <td
-                  id="game_board-c3"
-                  ref="c3"
-                  onClick={this.click_cell}
-                >
-                  {' '}
-                  {this.cell_cont('c3')}{' '}
-                </td>
+                {this.render_cell('c1')}
+                {this.render_cell('c2')}
+                {this.render_cell('c3')}
               </tr>
               <tr>
-                <td
-                  id="game_board-c4"
-                  ref="c4"
-                  onClick={this.click_cell}
-                  className="hbrd"
-                >
-                  {' '}
-                  {this.cell_cont('c4')}{' '}
-                </td>
-                <td
-                  id="game_board-c5"
-                  ref="c5"
-                  onClick={this.click_cell}
-                  className="vbrd hbrd"
-                >
-                  {' '}
-                  {this.cell_cont('c5')}{' '}
-                </td>
-                <td
-                  id="game_board-c6"
-                  ref="c6"
-                  onClick={this.click_cell}
-                  className="hbrd"
-                >
-                  {' '}
-                  {this.cell_cont('c6')}{' '}
-                </td>
+                {this.render_cell('c4')}
+                {this.render_cell('c5')}
+                {this.render_cell('c6')}
               </tr>
               <tr>
-                <td
-                  id="game_board-c7"
-                  ref="c7"
-                  onClick={this.click_cell}
-                >
-                  {' '}
-                  {this.cell_cont('c7')}{' '}
-                </td>
-                <td
-                  id="game_board-c8"
-                  ref="c8"
-                  onClick={this.click_cell}
-                  className="vbrd"
-                >
-                  {' '}
-                  {this.cell_cont('c8')}{' '}
-                </td>
-                <td
-                  id="game_board-c9"
-                  ref="c9"
-                  onClick={this.click_cell}
-                >
-                  {' '}
-                  {this.cell_cont('c9')}{' '}
-                </td>
+                {this.render_cell('c7')}
+                {this.render_cell('c8')}
+                {this.render_cell('c9')}
               </tr>
             </tbody>
           </table>
