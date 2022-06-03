@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import classNames from 'classnames';
 import TweenMax from 'gsap';
 
-import rand_arr_elem from '../../helpers/rand_arr_elem';
+// import rand_arr_elem from '../../helpers/rand_arr_elem';
 import rand_to_fro from '../../helpers/rand_to_fro';
 import { minimax } from '../../helpers/minimax';
 
@@ -248,7 +248,7 @@ export default class GameMain extends Component {
       !cell_vals['c' + i] && empty_cells_arr.push('c' + i);
     // console.log(cell_vals, empty_cells_arr, rand_arr_elem(empty_cells_arr))
 
-    const c = rand_arr_elem(empty_cells_arr);
+    // const c = rand_arr_elem(empty_cells_arr);
     var currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
       var chosen = cell_vals['c' + (i + 1)];
       if (chosen) {
@@ -258,7 +258,11 @@ export default class GameMain extends Component {
       }
     });
 
-    console.log(currentBoard);
+    const aiPlayer = 'o';
+    // finding the ultimate play on the game that favours the computer
+    let bestSpot = `c${minimax(currentBoard, aiPlayer).index + 1}`;
+    const c = bestSpot;
+
     cell_vals[c] = 'o';
 
     TweenMax.from(this.refs[c], 0.7, {
