@@ -249,6 +249,16 @@ export default class GameMain extends Component {
     // console.log(cell_vals, empty_cells_arr, rand_arr_elem(empty_cells_arr))
 
     const c = rand_arr_elem(empty_cells_arr);
+    var currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
+      var chosen = cell_vals['c' + (i + 1)];
+      if (chosen) {
+        return chosen;
+      } else {
+        return i;
+      }
+    });
+
+    console.log(currentBoard);
     cell_vals[c] = 'o';
 
     TweenMax.from(this.refs[c], 0.7, {
