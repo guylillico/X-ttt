@@ -6,6 +6,7 @@ import TweenMax from 'gsap';
 
 import rand_arr_elem from '../../helpers/rand_arr_elem';
 import rand_to_fro from '../../helpers/rand_to_fro';
+import { minimax } from '../../helpers/minimax';
 
 export default class GameMain extends Component {
   constructor(props) {
